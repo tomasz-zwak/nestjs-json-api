@@ -165,7 +165,7 @@ export async function getAll<T>(
     .innerJoin(
       `(${builder.getQuery()})`,
       'subQuery',
-      `"subQuery"."${subQueryIdAlias}" = ${countAlias}.${primaryColumn}`
+      `subQuery.${subQueryIdAlias} = ${countAlias}.${primaryColumn}`
     )
     .setParameters(builder.getParameters())
     .getRawMany<T>();
